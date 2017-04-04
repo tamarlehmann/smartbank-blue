@@ -1,13 +1,27 @@
 <% if @categories.length == 0 %>
   <p>You have no transactions to show</p>
 <% end %>
-
+<% @grand_total = 0 %>
+<% @transactions.each do |transaction| %>
+<% @grand_total += transaction.amount %>
+<% end %>
 <table>
   <tr>
     <th>Category</th>
     <th>Amount</th>
+    <th>% of Total</th>
   </tr>
     <% @categories.each do |category| %>
-    <tr><td><%= category.name %></td></tr>
+    <tr><td><%= category.name %></td>
+      <% @total = 0 %>
+
+      <td><% @transactions.each do |transaction| %>
+        <% if transaction.category_id == category.id %>
+        <% @total += transaction.amount %>
+        <% end %>
+        <% end %>
+        <%= @total.round(2) %></td>
+        <td><%= @total == 0 ? 0 : ((@total/@grand_total)*100).round %></td>
+      </tr>
     <% end %>
 </table>

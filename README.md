@@ -15,10 +15,30 @@ What we expect?
 
 ## User stories
 
+### MVP
 ```
 As a bank user,
-When I log in,
+So I can see my spending breakdown,
 I want to be able view my spending summarised by category.
+
+As a bank user,
+So I can see my spending breakdown,
+I want to be able to see transactions split by category.
+```
+
+### Post-MVP
+```
+As a bank user,
+So I can see my spending summary over a period of time,
+I want to be able to filter the date range.
+
+As a bank user,
+So I can see what categories I spend the most on,
+I want to be able to filter my spending summary by value.
+
+As a bank user,
+So I can see what my spending is like across accounts,
+I want to be able to individually select a specific account.
 
 As a bank user,
 So that I don't overspend on certain categories,

@@ -1,7 +1,13 @@
-<p>You have no transactions to show</p>
+<% if @categories.length == 0 %>
+  <p>You have no transactions to show</p>
+<% end %>
+
 <table>
   <tr>
     <th>Category</th>
     <th>Amount</th>
   </tr>
+    <% @categories.each do |category| %>
+    <tr><td><%= category.name %></td></tr>
+    <% end %>
 </table>

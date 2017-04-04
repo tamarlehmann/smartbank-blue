@@ -1,4 +1,4 @@
-<% if @categories.length == 0 %>
+<% if @transactions.length == 0 %>
   <p>You have no transactions to show</p>
 <% end %>
 <% @grand_total = 0 %>
@@ -12,7 +12,7 @@
     <th>% of Total</th>
   </tr>
     <% @categories.each do |category| %>
-    <tr><td><%= category.name %></td>
+    <tr><td> <%= link_to category.name, :controller => "categories", :action => :show, :id => category.name %> </td>
       <% @total = 0 %>
 
       <td><% @transactions.each do |transaction| %>

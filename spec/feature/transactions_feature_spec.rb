@@ -16,12 +16,9 @@ feature '#Transactions' do
   context 'Transactions:' do
 
     before do
-      @category = Category.create(name: 'food')
-      # @restaurant = @user.restaurants.create(name: 'KFC')
-      Transaction.create(date: '10/03/2017', amount: '23.00', vendor: 'Pret', trans_type: 'debit', category_id: 1)
-      Transaction.create(date: '15/03/2017', amount: '27.00', vendor: 'Orange', trans_type: 'debit', category_id: 1)
-      Transaction.create(date: '19/03/2017', amount: '40.00', vendor: 'Sainsburys', trans_type: 'debit', category_id: 2)
-
+      Transaction.create(date: '10/03/2017', amount: '23.00', vendor: 'Pret', trans_type: 'debit', category_id: 8)
+      Transaction.create(date: '15/03/2017', amount: '27.00', vendor: 'Orange', trans_type: 'debit', category_id: 8)
+      Transaction.create(date: '19/03/2017', amount: '50.00', vendor: 'Sainsburys', trans_type: 'debit', category_id: 9)
     end
 
     scenario 'should display categories for existing transactions' do
@@ -31,9 +28,18 @@ feature '#Transactions' do
 
     scenario "should display transaction total for category" do
       visit transactions_path
-      @transactions = Transaction.all
-      p @transactions
       expect(page).to have_content '50'
+    end
+
+    scenario "should display % total for category" do
+      visit transactions_path
+      expect(page).to have_content '50'
+    end
+
+    scenario "should be able to visit category page" do
+      visit transactions_path
+      click_link 'food'
+      expect(current_path).to eq ('/categories/food')
     end
   end
 end

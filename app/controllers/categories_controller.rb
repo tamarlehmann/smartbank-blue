@@ -1,8 +1,6 @@
 class CategoriesController < ApplicationController
 
   def index
-    @heading = 'Food'
-    @results = Transaction.joins(:category).where("categories.name = 'food'")
   end
 
   def edit
@@ -24,6 +22,13 @@ class CategoriesController < ApplicationController
 
   def task_params
     params.require(:category).permit(:name, :created_at, :updated_at, :transaction_id, :target)
+  end
+
+  def show
+    @heading = Category.find(params[:id]).name
+    @heading_cap = @heading.capitalize
+
+    @results = Transaction.joins(:category).where("categories.name = '#{@heading}'")
   end
 
 end

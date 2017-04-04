@@ -1,27 +1,30 @@
 <% if @transactions.length == 0 %>
   <p>You have no transactions to show</p>
 <% end %>
+
 <% @grand_total = 0 %>
 <% @transactions.each do |transaction| %>
-<% @grand_total += transaction.amount %>
+  <% @grand_total += transaction.amount %>
 <% end %>
+
 <table>
   <tr>
     <th>Category</th>
     <th>Amount</th>
     <th>% of Total</th>
   </tr>
-    <% @categories.each do |category| %>
-    <tr><td> <%= link_to category.name, :controller => "categories", :action => :show, :id => category.name %> </td>
+  <% @categories.each do |category| %>
+    <tr><td> <%= link_to category.name, :controller => "categories", :action => :show, :id => category.id %> </td>
       <% @total = 0 %>
 
       <td><% @transactions.each do |transaction| %>
-        <% if transaction.category_id == category.id %>
-        <% @total += transaction.amount %>
+          <% if transaction.category_id == category.id %>
+            <% @total += transaction.amount %>
+          <% end %>
         <% end %>
-        <% end %>
-        <%= @total.round(2) %></td>
-        <td><%= @total == 0 ? 0 : ((@total/@grand_total)*100).round %></td>
-      </tr>
-    <% end %>
+        <%= @total.round(2) %>
+      </td>
+      <td><%= @total == 0 ? 0 : ((@total/@grand_total)*100).round %></td>
+    </tr>
+  <% end %>
 </table>

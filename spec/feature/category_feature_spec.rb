@@ -7,7 +7,7 @@ feature '#Categories' do
         expect(page).to have_content 'You have no transactions to show for this category'
       end
       scenario 'should display table headings' do
-        visit transactions_path
+        visit categories_path
         expect(page).to have_content 'Date'
         expect(page).to have_content 'Transaction'
         expect(page).to have_content 'Amount'

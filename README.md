@@ -13,20 +13,43 @@ As a current account and credit card holder, I want to manage my money better.
 What we expect?
 - At least one user journey demonstrated, with the benefits to customer explained and what you learnt.
 
+## User stories
+
+```
+As a bank user,
+When I log in,
+I want to be able view my spending summarised by category.
+
+As a bank user,
+So that I don't overspend on certain categories,
+I want to be able to receive notifications if I've spent too much in a certain category.
+```
+
+## Customer benefits
+
+` User Story 1`
+* Clear the user to see what they have spent money on.
+* Able to track spending patterns over a period of time.
+* Able to track how much is saved monthly- refine spending patterns as a result.
+
+` User Story 2`
+* Able to set targets spending in particular categories.
+* Able to set targets for saving towards a specific goal.
+
 ## Technologies
 
-- Rails with PostgreSQL database.
+- Rails.
+- PostgreSQL database.
+- RSpec and Capybara for testing.
+- Github for version control and project management.
+
 
 ## Approach
 1. Discuss our visions about how we thought we could fulfil the user stories.
 2. Draw wireframes to align our approach.
 
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+## Things to add:
 
 * Ruby version
 
@@ -40,8 +63,4 @@ Things you may want to cover:
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
 * Deployment instructions
-
-* ...

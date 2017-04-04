@@ -1,0 +1,8 @@
+<h2> <%= @category.name %> </h2>
+
+<p> Current Target: <%= @category.target %> </p>
+
+<form action='/categories/1' method='patch'>
+  <input type='text' name='target'/>
+  <input type='submit' name='submit'/>
+</form>

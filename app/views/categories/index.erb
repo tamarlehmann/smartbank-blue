@@ -6,15 +6,17 @@
     <th>Transaction</th>
     <th>Amount</th>
   </tr>
+  <% total = 0 %>
   <%@results.each do |result| %>
       <tr>
         <td><%= result.date %></td>
         <td><%= result.vendor %></td>
         <td><%= result.amount %></td>
+        <% total += result.amount %>
       </tr>
-    </div>
   <% end %>
 </table>
+<p> Total: £ <%= total.round(2) %> </p>
 
 <% else %>
   <p>You have no transactions to show for this category</p>

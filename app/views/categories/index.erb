@@ -1,16 +1,16 @@
-<% if @category %>
-<h2>Category: <%= category.id %></h2>
+<h2><%= @heading %> </h2>
+<% if @results %>
 <table>
   <tr>
     <th>Date</th>
     <th>Transaction</th>
     <th>Amount</th>
   </tr>
-  <%@category.each do |item| %>
+  <%@results.each do |result| %>
       <tr>
-        <td><%= item.date %></td>
-        <td><%= item.transaction %></td>
-        <td><%= item.amount %></td>
+        <td><%= result.date %></td>
+        <td><%= result.vendor %></td>
+        <td><%= result.amount %></td>
       </tr>
     </div>
   <% end %>

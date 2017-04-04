@@ -5,4 +5,8 @@ class CategoriesController < ApplicationController
     @results = Transaction.joins(:category).where("categories.name = 'food'")
   end
 
+  def edit
+
+  end
+
 end

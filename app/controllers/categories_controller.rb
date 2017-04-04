@@ -7,11 +7,6 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end
 
-  def show
-    @heading = 'Food'
-    @results = Transaction.joins(:category).where("categories.name = 'food'")
-  end
-
   def update
     p params
     cat = Category.find(params[:id])
@@ -27,7 +22,7 @@ class CategoriesController < ApplicationController
   def show
     @heading = Category.find(params[:id]).name
     @heading_cap = @heading.capitalize
-
+    @target = Category.find(params[:id])
     @results = Transaction.joins(:category).where("categories.name = '#{@heading}'")
   end
 

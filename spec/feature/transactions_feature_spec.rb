@@ -39,7 +39,7 @@ feature '#Transactions' do
     scenario "should be able to visit category page" do
       visit transactions_path
       click_link 'food'
-      expect(current_path).to eq ('/categories/food')
+      expect(current_path).to eq ('/categories/8')
     end
   end
 end

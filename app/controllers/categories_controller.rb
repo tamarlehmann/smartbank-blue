@@ -1,7 +1,8 @@
 class CategoriesController < ApplicationController
 
   def index
-    @category = Category.where(:id => 1)
+    @heading = 'Food'
+    @results = Transaction.joins(:category).where("categories.name = 'food'")
   end
 
 end
